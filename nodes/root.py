@@ -1,3 +1,4 @@
+from torch import Tensor
 import torch
 
 MAX_RESOLUTION=8192
@@ -13,15 +14,12 @@ class ProcessImageBatch:
         }
 
     RETURN_TYPES = ("IMAGE",)
+    RETURN_NAMES = ("IMAGE",)
     FUNCTION = "process"
     CATEGORY = "CEM"
 
-    def process(self, images, reverse):
-        processed = []
-        for image in images:
-            processed.append(image)
-        processed = processed.reverse() if reverse else processed
-        return torch.cat(processed, dim=0)
+    def process(self, images: Tensor, reverse):
+        return images.__reversed__() if reverse else images
 
 NODE_CLASS_MAPPINGS = {
     "ProcessImageBatch": ProcessImageBatch
