@@ -17,6 +17,7 @@ class ProcessImageBatch:
     CATEGORY = "CEM"
 
     def process(self, images, reverse):
+        print(images)
         return torch.cat(list(images).reverse() if reverse else list(images), dim=0)
 
 NODE_CLASS_MAPPINGS = {
