@@ -1,5 +1,5 @@
-import { app } from '/scripts/app.js'
-import * as root from "./mod_methods/root";
+import { app } from '../../scripts/app.js'
+import * as root from "./mod_methods/root.js";
 
 const MOD_METHODS = {
   ...root
